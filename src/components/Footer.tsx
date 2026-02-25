@@ -5,7 +5,7 @@ const footerLinks = {
     { label: "About Us", href: "#about" },
     { label: "Our Products", href: "#products" },
     { label: "Quality & Certifications", href: "#quality" },
-    { label: "Global Reach", href: "#global" },
+    { label: "Markets", href: "#global" },
     { label: "Gallery", href: "#gallery" },
   ],
   services: [
@@ -33,26 +33,11 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy-950 relative overflow-hidden">
-      {/* Top wave */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
-        <svg
-          viewBox="0 0 1440 60"
-          preserveAspectRatio="none"
-          className="relative block w-full h-[30px] md:h-[40px] lg:h-[60px]"
-        >
-          <path
-            d="M0,20 C360,50 720,5 1080,25 C1260,35 1380,15 1440,20 L1440,60 L0,60 Z"
-            fill="#F8F6F0"
-          />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-8">
         {/* Main Footer Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            {/* Logo */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10">
                 <svg viewBox="0 0 40 40" fill="none">
@@ -76,13 +61,18 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-white/40 font-body text-sm leading-relaxed max-w-sm mb-6">
-              Premium frozen seafood from the heart of the Middle East to the world.
+            <p className="text-white/40 font-body text-sm leading-relaxed max-w-sm mb-4">
+              Premium frozen seafood from Umm Al Quwain, UAE to the world.
               Over four decades of excellence in sourcing, processing, and delivering
-              the finest seafood products. Now expanding across Russia and beyond.
+              the finest seafood products across the Gulf and beyond.
             </p>
 
-            {/* Certifications */}
+            <p className="text-white/30 font-body text-xs leading-relaxed max-w-sm mb-6">
+              Ittahad Road, Umm Al Quwain, UAE
+              <br />
+              nfc@alnilefish.com &middot; +971 6 766 6283
+            </p>
+
             <div className="flex items-center gap-4">
               {["HACCP", "ISO 22000", "EU", "GMP"].map((cert) => (
                 <div
@@ -97,16 +87,11 @@ export default function Footer() {
 
           {/* Link Columns */}
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">
-              Company
-            </h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => scrollTo(link.href)}
-                    className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors"
-                  >
+                  <button onClick={() => scrollTo(link.href)} className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors">
                     {link.label}
                   </button>
                 </li>
@@ -115,16 +100,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">
-              Products
-            </h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Products</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => scrollTo(link.href)}
-                    className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors"
-                  >
+                  <button onClick={() => scrollTo(link.href)} className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors">
                     {link.label}
                   </button>
                 </li>
@@ -133,16 +113,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">
-              Support
-            </h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Support</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => scrollTo(link.href)}
-                    className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors"
-                  >
+                  <button onClick={() => scrollTo(link.href)} className="text-sm font-body text-white/40 hover:text-gold-400 transition-colors">
                     {link.label}
                   </button>
                 </li>
@@ -160,20 +135,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Al Nile Fish Import & Export. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">
-              Cookie Policy
-            </a>
+            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
 
-      {/* Back to Top */}
       <BackToTop />
     </footer>
   );

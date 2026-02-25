@@ -4,39 +4,15 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function Partnership() {
   return (
-    <section
-      id="partnership"
-      className="relative py-24 md:py-32 overflow-hidden"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 bg-partnership-gradient animated-gradient" />
-
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-[0.06]"
-          style={{
-            background: "radial-gradient(circle, #C5A572 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
+    <section id="partnership" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80"
+          alt="Ocean"
+          className="w-full h-full object-cover"
         />
-        <div
-          className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full opacity-[0.04]"
-          style={{
-            background: "radial-gradient(circle, #1B6B93 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-
-        {/* Dot pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(197,165,114,0.5) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
+        <div className="absolute inset-0 bg-navy-950/85" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 lg:px-8 relative">
@@ -50,7 +26,7 @@ export default function Partnership() {
             <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
           </div>
 
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+          <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6">
             Partner With
             <br />
             <span className="gold-shimmer">Al Nile Fish</span>
@@ -58,10 +34,10 @@ export default function Partnership() {
 
           <div className="decorative-line mx-auto mb-8" />
 
-          <p className="text-lg text-white/50 max-w-2xl mx-auto text-balance font-body leading-relaxed mb-10">
+          <p className="text-lg text-white/50 max-w-2xl mx-auto font-body leading-relaxed mb-12">
             We are actively seeking distributors, importers, and strategic partners
-            across Russia, Europe, and emerging markets. Join a legacy of excellence
-            that spans over four decades and across continents.
+            across the GCC, Europe, and emerging markets. Join a legacy of excellence
+            that spans over four decades.
           </p>
 
           {/* Partnership benefits */}
@@ -70,41 +46,20 @@ export default function Partnership() {
               {
                 title: "Distribution Partners",
                 desc: "Exclusive distribution rights in select territories with full marketing and logistics support.",
-                icon: (
-                  <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="16" cy="16" r="12" />
-                    <path d="M16 4V16L24 20" strokeLinecap="round" />
-                  </svg>
-                ),
               },
               {
                 title: "White Label",
                 desc: "Custom branding and packaging solutions for your market, backed by our certified production.",
-                icon: (
-                  <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <rect x="4" y="6" width="24" height="20" rx="2" />
-                    <path d="M4 14H28" />
-                    <path d="M10 20H22" strokeLinecap="round" />
-                  </svg>
-                ),
               },
               {
                 title: "Joint Ventures",
                 desc: "Strategic partnerships for market development, cold chain infrastructure, and co-investment opportunities.",
-                icon: (
-                  <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M6 16L14 8L20 14L26 8" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M22 8H26V12" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M6 24H26" strokeLinecap="round" strokeDasharray="2 3" />
-                  </svg>
-                ),
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="glass-card rounded-xl p-6 text-left"
+                className="rounded-xl p-6 text-left bg-white/[0.05] border border-white/[0.08] hover:border-gold-500/20 transition-all duration-300"
               >
-                <div className="text-gold-400 mb-4">{item.icon}</div>
                 <h4 className="font-display font-bold text-lg text-white mb-2">
                   {item.title}
                 </h4>

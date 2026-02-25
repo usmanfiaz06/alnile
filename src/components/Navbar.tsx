@@ -7,7 +7,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
   { label: "Quality", href: "#quality" },
-  { label: "Global Reach", href: "#global" },
+  { label: "Markets", href: "#global" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
@@ -21,40 +21,28 @@ export default function Navbar() {
     const onScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 60);
-
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0);
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
-      {/* Navbar */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -75,30 +63,11 @@ export default function Navbar() {
             }}
             className="flex items-center gap-3 group"
           >
-            {/* Logo Icon - Stylized Fish + Wave */}
             <div className="relative w-10 h-10">
               <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-                {/* Outer ring */}
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="18"
-                  stroke="url(#logoGradient)"
-                  strokeWidth="1.5"
-                  className="transition-all duration-500 group-hover:stroke-[2]"
-                />
-                {/* Fish silhouette */}
-                <path
-                  d="M12 20C12 20 16 14 24 14C28 14 30 17 30 20C30 23 28 26 24 26C16 26 12 20 12 20Z"
-                  fill="url(#logoGradient)"
-                  className="transition-all duration-500"
-                />
-                {/* Fish tail */}
-                <path
-                  d="M10 16C10 16 12 20 10 24C12 22 14 20 12 20C14 20 12 18 10 16Z"
-                  fill="url(#logoGradient)"
-                />
-                {/* Eye */}
+                <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" strokeWidth="1.5" className="transition-all duration-500 group-hover:stroke-[2]" />
+                <path d="M12 20C12 20 16 14 24 14C28 14 30 17 30 20C30 23 28 26 24 26C16 26 12 20 12 20Z" fill="url(#logoGradient)" />
+                <path d="M10 16C10 16 12 20 10 24C12 22 14 20 12 20C14 20 12 18 10 16Z" fill="url(#logoGradient)" />
                 <circle cx="26" cy="19.5" r="1.5" fill="#050B14" />
                 <defs>
                   <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
@@ -134,20 +103,12 @@ export default function Navbar() {
 
           {/* Desktop Right Side */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Language Toggle */}
             <div className="flex items-center gap-1 text-xs font-body text-white/50">
-              <button className="px-2 py-1 rounded text-white/90 bg-white/10 transition-colors">
-                EN
-              </button>
+              <button className="px-2 py-1 rounded text-white/90 bg-white/10 transition-colors">EN</button>
               <span className="text-white/20">|</span>
-              <button className="px-2 py-1 rounded hover:text-white/90 hover:bg-white/5 transition-colors">
-                RU
-              </button>
+              <button className="px-2 py-1 rounded hover:text-white/90 hover:bg-white/5 transition-colors">AR</button>
             </div>
-            <button
-              onClick={() => handleNavClick("#contact")}
-              className="btn-gold text-xs !px-6 !py-3"
-            >
+            <button onClick={() => handleNavClick("#contact")} className="btn-gold text-xs !px-6 !py-3">
               Get in Touch
             </button>
           </div>
@@ -159,21 +120,9 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <div className="flex flex-col gap-1.5">
-              <span
-                className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 origin-center ${
-                  mobileOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 ${
-                  mobileOpen ? "opacity-0 scale-0" : ""
-                }`}
-              />
-              <span
-                className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 origin-center ${
-                  mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
+              <span className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 ${mobileOpen ? "opacity-0 scale-0" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-gold-400 transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </div>
           </button>
         </div>
@@ -209,12 +158,8 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.08, duration: 0.4 }}
                 className="mt-4 flex items-center gap-3"
               >
-                <button className="px-3 py-1.5 rounded text-sm text-white/90 bg-white/10">
-                  EN
-                </button>
-                <button className="px-3 py-1.5 rounded text-sm text-white/50 hover:text-white/90 hover:bg-white/5 transition-colors">
-                  RU
-                </button>
+                <button className="px-3 py-1.5 rounded text-sm text-white/90 bg-white/10">EN</button>
+                <button className="px-3 py-1.5 rounded text-sm text-white/50 hover:text-white/90 hover:bg-white/5 transition-colors">AR</button>
               </motion.div>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
