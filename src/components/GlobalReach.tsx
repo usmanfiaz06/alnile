@@ -25,82 +25,169 @@ function AnimatedMap() {
   }, []);
 
   return (
-    <svg ref={ref} viewBox="0 0 900 450" className="w-full h-auto" fill="none">
-      <g opacity="0.15" stroke="#C5A572" strokeWidth="0.5">
-        <path d="M120,100 C130,80 160,60 200,70 C220,75 240,90 250,110 C260,130 240,150 230,170 C220,190 200,200 180,210 C160,220 140,215 130,200 C120,180 110,150 100,140 C90,130 95,120 120,100Z" />
-        <path d="M200,230 C210,220 230,225 240,240 C250,260 260,290 255,320 C250,350 240,370 225,380 C210,390 200,380 195,360 C190,340 185,310 185,290 C185,270 190,240 200,230Z" />
-        <path d="M400,80 C420,70 440,75 460,80 C470,85 475,95 470,105 C465,115 455,120 445,125 C435,130 425,128 415,120 C405,115 395,100 400,80Z" />
-        <path d="M420,140 C440,130 460,135 475,150 C490,170 495,200 490,230 C485,260 475,290 460,310 C445,330 425,335 415,320 C405,305 400,280 395,250 C390,220 400,160 420,140Z" />
-        <path d="M480,60 C520,50 580,45 640,50 C700,55 740,65 760,75 C780,85 770,100 750,110 C730,120 700,125 660,120 C620,115 580,110 540,105 C500,100 480,90 480,60Z" />
-        <path d="M500,120 C520,115 540,120 545,135 C550,150 540,165 525,170 C510,175 495,165 490,150 C485,135 490,125 500,120Z" />
-        <path d="M700,280 C720,270 750,275 770,290 C790,305 785,325 770,335 C755,345 730,340 715,330 C700,320 690,295 700,280Z" />
+    <svg ref={ref} viewBox="0 0 1000 500" className="w-full h-auto" fill="none">
+      {/* Grid lines for geography feel */}
+      <g opacity="0.04" stroke="#C5A572">
+        {[100,150,200,250,300,350,400].map(y => <line key={`h${y}`} x1="0" y1={y} x2="1000" y2={y} strokeWidth="0.5" />)}
+        {[100,200,300,400,500,600,700,800,900].map(x => <line key={`v${x}`} x1={x} y1="50" x2={x} y2="450" strokeWidth="0.5" />)}
       </g>
 
-      {/* UAE HQ Marker */}
+      {/* Equator */}
+      <line x1="0" y1="250" x2="1000" y2="250" stroke="#C5A572" strokeWidth="0.3" opacity="0.08" strokeDasharray="8 4" />
+
+      {/* === WORLD MAP - Simplified continent outlines === */}
+      <g opacity="0.2" fill="#C5A572" fillOpacity="0.06" stroke="#C5A572" strokeWidth="0.8">
+        {/* North America */}
+        <path d="M45,80 L80,65 L120,60 L145,70 L170,58 L195,65 L210,75 L215,90 L230,85 L240,95 L235,110 L225,120 L230,135 L220,145 L210,155 L215,165 L205,175 L195,180 L180,190 L165,195 L155,200 L148,210 L135,215 L125,210 L120,195 L115,185 L105,180 L95,170 L80,165 L70,155 L60,140 L50,125 L42,110 L38,95 Z" />
+        {/* Greenland */}
+        <path d="M215,40 L240,35 L260,40 L270,50 L265,65 L250,70 L235,68 L220,60 L215,50 Z" />
+        {/* Central America & Caribbean */}
+        <path d="M148,210 L155,215 L165,220 L175,218 L180,225 L178,232 L170,235 L160,230 L150,228 L140,225 L135,218 Z" />
+        {/* South America */}
+        <path d="M195,240 L210,235 L225,240 L240,250 L250,265 L255,280 L260,300 L258,320 L250,340 L240,355 L230,370 L220,380 L210,385 L200,380 L195,370 L190,355 L185,340 L180,320 L178,300 L175,280 L178,265 L185,250 Z" />
+
+        {/* Europe */}
+        <path d="M400,70 L420,62 L435,65 L445,58 L460,60 L470,55 L480,60 L490,65 L485,75 L480,85 L470,90 L465,100 L458,108 L450,115 L440,118 L430,115 L420,110 L415,100 L408,95 L400,90 L395,80 Z" />
+        {/* UK */}
+        <path d="M385,72 L392,68 L396,72 L394,80 L388,82 L384,78 Z" />
+        {/* Scandinavia */}
+        <path d="M435,38 L442,32 L450,35 L455,42 L458,52 L455,58 L448,55 L440,50 L435,45 Z" />
+        {/* Iceland */}
+        <path d="M350,42 L360,38 L368,42 L365,48 L355,48 Z" />
+
+        {/* Africa */}
+        <path d="M420,160 L435,155 L450,158 L465,160 L480,165 L490,172 L498,180 L505,195 L508,210 L510,230 L508,250 L505,270 L498,290 L490,305 L480,318 L470,328 L460,335 L450,338 L440,335 L430,325 L422,312 L418,298 L415,280 L412,260 L410,240 L408,220 L410,200 L412,185 L415,170 Z" />
+        {/* Madagascar */}
+        <path d="M520,300 L525,295 L530,300 L530,315 L525,320 L520,315 Z" />
+
+        {/* Russia / Northern Asia */}
+        <path d="M490,65 L520,55 L550,48 L580,42 L620,38 L660,35 L700,38 L740,42 L770,48 L800,55 L830,52 L850,58 L840,68 L820,72 L800,75 L770,78 L740,82 L710,80 L680,78 L650,82 L620,85 L590,82 L560,78 L540,75 L520,72 L505,70 L495,68 Z" />
+
+        {/* Middle East */}
+        <path d="M498,120 L510,115 L522,118 L530,125 L535,135 L540,145 L538,155 L530,160 L520,162 L510,158 L505,150 L500,140 L498,130 Z" />
+        {/* Arabian Peninsula */}
+        <path d="M490,145 L500,140 L510,142 L525,148 L535,155 L540,165 L538,175 L530,180 L518,178 L508,175 L498,170 L492,162 L488,155 Z" />
+
+        {/* India & South Asia */}
+        <path d="M580,120 L595,115 L610,118 L618,125 L622,135 L620,148 L615,162 L610,178 L605,192 L598,205 L590,215 L585,210 L580,198 L575,185 L572,170 L570,155 L572,140 L575,130 Z" />
+        {/* Sri Lanka */}
+        <path d="M605,218 L610,215 L614,220 L612,228 L607,228 L604,224 Z" />
+
+        {/* China / East Asia */}
+        <path d="M660,82 L680,78 L700,80 L720,85 L740,90 L755,100 L760,115 L755,130 L748,142 L740,150 L728,155 L715,152 L700,148 L688,142 L678,135 L670,125 L665,112 L660,100 L658,90 Z" />
+
+        {/* Southeast Asia */}
+        <path d="M700,165 L715,160 L730,165 L738,175 L735,188 L728,195 L718,198 L708,192 L702,180 L698,172 Z" />
+        {/* Indonesia */}
+        <path d="M695,215 L712,210 L728,212 L742,215 L755,218 L762,225 L758,232 L745,230 L730,228 L715,226 L702,224 L695,220 Z" />
+        <path d="M768,222 L780,220 L790,225 L788,232 L778,232 L770,228 Z" />
+
+        {/* Japan */}
+        <path d="M775,95 L780,88 L785,92 L788,102 L785,112 L780,118 L775,112 L772,102 Z" />
+
+        {/* Australia */}
+        <path d="M740,290 L760,280 L785,278 L810,282 L830,290 L840,305 L838,320 L830,335 L818,345 L800,348 L780,345 L762,338 L750,325 L742,310 L738,298 Z" />
+        {/* New Zealand */}
+        <path d="M858,340 L862,335 L868,338 L870,348 L866,355 L860,352 Z" />
+      </g>
+
+      {/* === Connection lines from UAE to markets === */}
+      <g className={`transition-all duration-1500 ${visible ? "opacity-30" : "opacity-0"}`} style={{ transitionDelay: "800ms" }}>
+        {/* UAE to Russia */}
+        <path d="M530,155 Q540,100 580,60" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
+        {/* UAE to Pakistan */}
+        <line x1="530" y1="155" x2="582" y2="165" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" />
+        {/* UAE to Sri Lanka */}
+        <path d="M530,155 Q560,185 608,222" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
+        {/* UAE to Qatar */}
+        <line x1="530" y1="155" x2="525" y2="162" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
+        {/* UAE to KSA */}
+        <line x1="530" y1="155" x2="505" y2="158" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
+        {/* UAE to Kuwait */}
+        <line x1="530" y1="155" x2="515" y2="140" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
+        {/* UAE to Oman */}
+        <line x1="530" y1="155" x2="540" y2="168" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
+        {/* UAE to EU */}
+        <path d="M530,155 Q480,110 445,85" stroke="#C5A572" strokeWidth="0.8" strokeDasharray="4 3" fill="none" />
+      </g>
+
+      {/* === UAE HQ Marker === */}
       <g className={`transition-all duration-1000 ${visible ? "opacity-100" : "opacity-0"}`}>
-        <circle cx="530" cy="145" r="8" fill="#C5A572" className="map-pulse" />
-        <circle cx="530" cy="145" r="4" fill="#E0C78F" />
-        <text x="530" y="170" textAnchor="middle" fill="#C5A572" fontSize="12" fontFamily="Inter, sans-serif" fontWeight="700">
+        <circle cx="530" cy="155" r="12" fill="#C5A572" fillOpacity="0.15" />
+        <circle cx="530" cy="155" r="8" fill="#C5A572" className="map-pulse" />
+        <circle cx="530" cy="155" r="4" fill="#E0C78F" />
+        <text x="530" y="180" textAnchor="middle" fill="#C5A572" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="700" letterSpacing="0.5">
           UAE (HQ)
         </text>
       </g>
 
-      {/* GCC Market Markers */}
+      {/* === GCC Market Markers === */}
       {[
-        { cx: 520, cy: 155, label: "QATAR", delay: 500 },
-        { cx: 548, cy: 158, label: "OMAN", delay: 700 },
-        { cx: 508, cy: 140, label: "KUWAIT", delay: 900 },
-        { cx: 498, cy: 150, label: "KSA", delay: 1100 },
-      ].map((market) => (
+        { cx: 525, cy: 162, label: "QATAR", lx: 525, ly: 175 },
+        { cx: 540, cy: 168, label: "OMAN", lx: 552, ly: 178 },
+        { cx: 515, cy: 140, label: "KUWAIT", lx: 500, ly: 133 },
+        { cx: 505, cy: 158, label: "KSA", lx: 490, ly: 165 },
+      ].map((market, i) => (
         <g
           key={market.label}
-          className={`transition-all duration-700 ${visible ? "opacity-80" : "opacity-0"}`}
-          style={{ transitionDelay: `${market.delay}ms` }}
+          className={`transition-all duration-700 ${visible ? "opacity-90" : "opacity-0"}`}
+          style={{ transitionDelay: `${500 + i * 200}ms` }}
         >
-          <circle cx={market.cx} cy={market.cy} r="4" fill="#1B6B93" />
-          <circle cx={market.cx} cy={market.cy} r="2" fill="#4DAECE" />
-          <text x={market.cx} y={market.cy - 8} textAnchor="middle" fill="#1B6B93" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="600">
+          <circle cx={market.cx} cy={market.cy} r="5" fill="#1B6B93" fillOpacity="0.3" />
+          <circle cx={market.cx} cy={market.cy} r="3" fill="#4DAECE" />
+          <text x={market.lx} y={market.ly} textAnchor="middle" fill="#4DAECE" fontSize="7" fontFamily="Inter, sans-serif" fontWeight="600" letterSpacing="0.5">
             {market.label}
           </text>
         </g>
       ))}
 
-      {/* Import Source Markers */}
+      {/* === Import Source Markers === */}
       {[
-        { cx: 490, cy: 80, label: "RUSSIA", delay: 1300 },
-        { cx: 565, cy: 160, label: "PAKISTAN", delay: 1500 },
-        { cx: 580, cy: 175, label: "SRI LANKA", delay: 1700 },
-      ].map((market) => (
+        { cx: 580, cy: 60, label: "RUSSIA", lx: 580, ly: 52 },
+        { cx: 582, cy: 165, label: "PAKISTAN", lx: 600, ly: 162 },
+        { cx: 608, cy: 222, label: "SRI LANKA", lx: 630, ly: 225 },
+      ].map((market, i) => (
         <g
           key={market.label}
-          className={`transition-all duration-700 ${visible ? "opacity-80" : "opacity-0"}`}
-          style={{ transitionDelay: `${market.delay}ms` }}
+          className={`transition-all duration-700 ${visible ? "opacity-90" : "opacity-0"}`}
+          style={{ transitionDelay: `${1300 + i * 200}ms` }}
         >
-          <circle cx={market.cx} cy={market.cy} r="4" fill="#C5A572" />
-          <circle cx={market.cx} cy={market.cy} r="2" fill="#E0C78F" />
-          <text x={market.cx} y={market.cy - 8} textAnchor="middle" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="600">
+          <circle cx={market.cx} cy={market.cy} r="6" fill="#C5A572" fillOpacity="0.2" />
+          <circle cx={market.cx} cy={market.cy} r="3.5" fill="#C5A572" />
+          <circle cx={market.cx} cy={market.cy} r="1.5" fill="#E0C78F" />
+          <text x={market.lx} y={market.ly} textAnchor="middle" fill="#C5A572" fontSize="7.5" fontFamily="Inter, sans-serif" fontWeight="700" letterSpacing="0.5">
             {market.label}
           </text>
         </g>
       ))}
 
-      {/* Other markets */}
+      {/* === Other region labels === */}
       {[
-        { cx: 440, cy: 95, label: "EU", delay: 1900 },
-        { cx: 670, cy: 130, label: "ASIA", delay: 2100 },
-        { cx: 460, cy: 200, label: "AFRICA", delay: 2300 },
-      ].map((market) => (
+        { cx: 445, cy: 85, label: "EUROPE" },
+        { cx: 460, cy: 260, label: "AFRICA" },
+        { cx: 720, cy: 135, label: "EAST ASIA" },
+        { cx: 155, cy: 140, label: "AMERICAS" },
+      ].map((region, i) => (
         <g
-          key={market.label}
-          className={`transition-all duration-700 ${visible ? "opacity-50" : "opacity-0"}`}
-          style={{ transitionDelay: `${market.delay}ms` }}
+          key={region.label}
+          className={`transition-all duration-700 ${visible ? "opacity-40" : "opacity-0"}`}
+          style={{ transitionDelay: `${1900 + i * 200}ms` }}
         >
-          <circle cx={market.cx} cy={market.cy} r="3" fill="#C5A572" opacity="0.6" />
-          <text x={market.cx} y={market.cy - 8} textAnchor="middle" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" opacity="0.6">
-            {market.label}
+          <text x={region.cx} y={region.cy} textAnchor="middle" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="1">
+            {region.label}
           </text>
         </g>
       ))}
+
+      {/* Legend */}
+      <g className={`transition-all duration-700 ${visible ? "opacity-60" : "opacity-0"}`} style={{ transitionDelay: "2500ms" }}>
+        <circle cx="40" cy="430" r="4" fill="#C5A572" />
+        <text x="50" y="433" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Import Sources</text>
+        <circle cx="140" cy="430" r="4" fill="#4DAECE" />
+        <text x="150" y="433" fill="#4DAECE" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Export Markets</text>
+        <circle cx="250" cy="430" r="4" fill="#E0C78F" />
+        <text x="260" y="433" fill="#E0C78F" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Headquarters</text>
+      </g>
     </svg>
   );
 }

@@ -34,8 +34,8 @@ export default function Hero() {
     >
       <div className="hero-bg absolute inset-0 scale-110 will-change-transform">
         <img
-          src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=1920&q=80"
-          alt="Fresh seafood display"
+          src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=1920&q=80"
+          alt="Fresh seafood market display"
           className="w-full h-full object-cover"
         />
       </div>
