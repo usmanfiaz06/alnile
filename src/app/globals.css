@@ -220,3 +220,24 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+/* --- Arabic / RTL Support --- */
+.font-arabic {
+  font-family: "Noto Sans Arabic", "Inter", system-ui, sans-serif;
+}
+
+.font-arabic .font-display {
+  font-family: "Noto Sans Arabic", "Playfair Display", Georgia, serif;
+}
+
+.font-arabic .font-body {
+  font-family: "Noto Sans Arabic", "Inter", system-ui, sans-serif;
+}
+
+[dir="rtl"] .gold-shimmer {
+  direction: rtl;
+}
+
+[dir="rtl"] .decorative-line {
+  direction: ltr;
+}

@@ -1,29 +1,33 @@
 "use client";
 
-const footerLinks = {
-  company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Products", href: "#products" },
-    { label: "Quality & Certifications", href: "#quality" },
-    { label: "Markets", href: "#global" },
-    { label: "Gallery", href: "#gallery" },
-  ],
-  services: [
-    { label: "Fresh Fish", href: "#products" },
-    { label: "Shellfish & Crustaceans", href: "#products" },
-    { label: "Premium Fillets", href: "#products" },
-    { label: "Specialty Products", href: "#products" },
-    { label: "Custom Orders", href: "#contact" },
-  ],
-  support: [
-    { label: "Contact Us", href: "#contact" },
-    { label: "Partnership", href: "#partnership" },
-    { label: "Export Inquiries", href: "#contact" },
-    { label: "Careers", href: "#contact" },
-  ],
-};
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t, lang } = useLanguage();
+
+  const footerLinks = {
+    company: [
+      { label: lang === "ar" ? "من نحن" : "About Us", href: "#about" },
+      { label: lang === "ar" ? "منتجاتنا" : "Our Products", href: "#products" },
+      { label: lang === "ar" ? "الجودة والشهادات" : "Quality & Certifications", href: "#quality" },
+      { label: lang === "ar" ? "الأسواق" : "Markets", href: "#global" },
+      { label: lang === "ar" ? "المعرض" : "Gallery", href: "#gallery" },
+    ],
+    services: [
+      { label: lang === "ar" ? "أسماك طازجة" : "Fresh Fish", href: "#products" },
+      { label: lang === "ar" ? "المحار والقشريات" : "Shellfish & Crustaceans", href: "#products" },
+      { label: lang === "ar" ? "فيليه فاخر" : "Premium Fillets", href: "#products" },
+      { label: lang === "ar" ? "منتجات مميزة" : "Specialty Products", href: "#products" },
+      { label: lang === "ar" ? "طلبات مخصصة" : "Custom Orders", href: "#contact" },
+    ],
+    support: [
+      { label: lang === "ar" ? "اتصل بنا" : "Contact Us", href: "#contact" },
+      { label: lang === "ar" ? "الشراكة" : "Partnership", href: "#partnership" },
+      { label: lang === "ar" ? "استفسارات التصدير" : "Export Inquiries", href: "#contact" },
+      { label: lang === "ar" ? "وظائف" : "Careers", href: "#contact" },
+    ],
+  };
+
   const scrollTo = (href: string) => {
     if (href.startsWith("#")) {
       const el = document.querySelector(href);
@@ -34,9 +38,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-950 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-8">
-        {/* Main Footer Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10">
@@ -54,17 +56,17 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <span className="text-lg font-display font-bold text-white">Al Nile</span>
+                <span className="text-lg font-display font-bold text-white">
+                  {lang === "ar" ? "النيل" : "Al Nile"}
+                </span>
                 <span className="text-[10px] font-body font-medium tracking-[0.3em] uppercase text-gold-400 block leading-tight">
-                  Fish
+                  {lang === "ar" ? "أسماك" : "Fish"}
                 </span>
               </div>
             </div>
 
             <p className="text-white/40 font-body text-sm leading-relaxed max-w-sm mb-4">
-              Premium fresh seafood import &amp; export from Umm Al Quwain, UAE to the world.
-              Over four decades of excellence in sourcing, processing, and delivering
-              the finest seafood products across the Gulf and beyond.
+              {t("footer.desc")}
             </p>
 
             <p className="text-white/30 font-body text-xs leading-relaxed max-w-sm mb-6">
@@ -85,9 +87,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link Columns */}
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Company</h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">{t("footer.company")}</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -100,7 +101,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Products</h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">{t("footer.products")}</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -113,7 +114,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">Support</h4>
+            <h4 className="font-display font-bold text-white mb-5 text-sm tracking-wide">{t("footer.support")}</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
@@ -126,17 +127,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
 
-        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs font-body text-white/30">
-            &copy; {new Date().getFullYear()} Al Nile Fish Import & Export. All rights reserved.
+            &copy; {new Date().getFullYear()} {t("footer.rights")}
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">Terms of Service</a>
+            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">{t("footer.privacy")}</a>
+            <a href="#" className="text-xs font-body text-white/30 hover:text-gold-400 transition-colors">{t("footer.terms")}</a>
           </div>
         </div>
       </div>

@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Preloader() {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export default function Preloader() {
           >
             <h2 className="font-display font-bold text-2xl text-white mb-1">Al Nile Fish</h2>
             <p className="text-xs font-body tracking-[0.3em] uppercase text-gold-400/70">
-              Premium Fresh Seafood
+              {t("preloader.tagline")}
             </p>
           </motion.div>
 

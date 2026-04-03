@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 function AnimatedMap() {
   const ref = useRef<SVGSVGElement>(null);
@@ -25,7 +26,6 @@ function AnimatedMap() {
 
   return (
     <svg ref={ref} viewBox="0 0 900 450" className="w-full h-auto" fill="none">
-      {/* World Map Outline */}
       <g opacity="0.15" stroke="#C5A572" strokeWidth="0.5">
         <path d="M120,100 C130,80 160,60 200,70 C220,75 240,90 250,110 C260,130 240,150 230,170 C220,190 200,200 180,210 C160,220 140,215 130,200 C120,180 110,150 100,140 C90,130 95,120 120,100Z" />
         <path d="M200,230 C210,220 230,225 240,240 C250,260 260,290 255,320 C250,350 240,370 225,380 C210,390 200,380 195,360 C190,340 185,310 185,290 C185,270 190,240 200,230Z" />
@@ -106,43 +106,48 @@ function AnimatedMap() {
 }
 
 const gccMarkets = [
-  { country: "United Arab Emirates", role: "Headquarters", city: "Umm Al Quwain" },
-  { country: "Saudi Arabia", role: "Major Market", city: "Riyadh, Jeddah, Dammam" },
-  { country: "Qatar", role: "Active Market", city: "Doha" },
-  { country: "Kuwait", role: "Active Market", city: "Kuwait City" },
-  { country: "Oman", role: "Active Market", city: "Muscat" },
-  { country: "Pakistan", role: "Import Partner", city: "Karachi" },
-  { country: "Sri Lanka", role: "Import Partner", city: "Colombo" },
+  { country: { en: "United Arab Emirates", ar: "الإمارات العربية المتحدة" }, role: { en: "Headquarters", ar: "المقر الرئيسي" }, city: "Umm Al Quwain" },
+  { country: { en: "Saudi Arabia", ar: "المملكة العربية السعودية" }, role: { en: "Major Market", ar: "سوق رئيسي" }, city: "Riyadh, Jeddah, Dammam" },
+  { country: { en: "Qatar", ar: "قطر" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Doha" },
+  { country: { en: "Kuwait", ar: "الكويت" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Kuwait City" },
+  { country: { en: "Oman", ar: "عمان" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Muscat" },
+  { country: { en: "Pakistan", ar: "باكستان" }, role: { en: "Import Partner", ar: "شريك استيراد" }, city: "Karachi" },
+  { country: { en: "Sri Lanka", ar: "سريلانكا" }, role: { en: "Import Partner", ar: "شريك استيراد" }, city: "Colombo" },
+];
+
+const importSources = [
+  { country: { en: "Russia", ar: "روسيا" }, specialty: { en: "Cold-water fish, Salmon, Cod, Pollock", ar: "أسماك المياه الباردة، السلمون، القد، البولاك" } },
+  { country: { en: "Pakistan", ar: "باكستان" }, specialty: { en: "Shrimp, Prawns, Pomfret, Sole", ar: "الجمبري، القريدس، البومفريت، موسى" } },
+  { country: { en: "Sri Lanka", ar: "سريلانكا" }, specialty: { en: "Tuna, Swordfish, Crab, Lobster", ar: "التونة، سمك أبو سيف، السلطعون، الكركند" } },
 ];
 
 const expansionStats = [
-  { label: "Active Markets", value: "25+" },
-  { label: "Distribution Partners", value: "150+" },
-  { label: "Annual Shipments", value: "2,000+" },
-  { label: "Cold Storage Capacity", value: "50K MT" },
+  { label: { en: "Active Markets", ar: "أسواق نشطة" }, value: "25+" },
+  { label: { en: "Distribution Partners", ar: "شركاء التوزيع" }, value: "150+" },
+  { label: { en: "Annual Shipments", ar: "شحنات سنوية" }, value: "2,000+" },
+  { label: { en: "Cold Storage Capacity", ar: "سعة التخزين البارد" }, value: "50K MT" },
 ];
 
 export default function GlobalReach() {
+  const { t, lang } = useLanguage();
+
   return (
     <section id="global" className="py-24 md:py-32 lg:py-40 bg-navy-950 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        {/* Section Header */}
         <ScrollReveal className="text-center mb-16">
           <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-teal-400 mb-4 block">
-            Worldwide Presence
+            {t("global.tag")}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6">
-            Our Global{" "}
-            <span className="gold-shimmer">Reach</span>
+            {t("global.title1")}
+            <span className="gold-shimmer">{t("global.title2")}</span>
           </h2>
           <div className="decorative-line mx-auto mb-8" />
           <p className="text-lg text-white/50 max-w-3xl mx-auto font-body leading-relaxed">
-            Based in the UAE, Al Nile Fish connects the world&apos;s finest seafood with
-            discerning buyers across the Gulf region and beyond.
+            {t("global.desc")}
           </p>
         </ScrollReveal>
 
-        {/* Map */}
         <ScrollReveal className="mb-16">
           <div className="rounded-2xl p-6 md:p-10 bg-white/[0.03] border border-white/[0.06]">
             <AnimatedMap />
@@ -161,32 +166,25 @@ export default function GlobalReach() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 rounded-full bg-teal-400 animate-pulse" />
                   <span className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-teal-400">
-                    Import Operations
+                    {t("global.importTag")}
                   </span>
                 </div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
-                  Importing from
+                  {t("global.importTitle1")}
                   <br />
-                  <span className="gold-shimmer">Russia & Beyond</span>
+                  <span className="gold-shimmer">{t("global.importTitle2")}</span>
                 </h3>
                 <p className="text-white/50 font-body leading-relaxed mb-6">
-                  Al Nile Fish has established strong import partnerships with Russia&apos;s
-                  premier fisheries, bringing the finest cold-water catch to the Gulf
-                  market. Our sourcing network also extends to Pakistan and Sri Lanka,
-                  ensuring a diverse and premium selection of fresh seafood year-round.
+                  {t("global.importDesc")}
                 </p>
 
                 <div className="space-y-3">
-                  {[
-                    { country: "Russia", specialty: "Cold-water fish, Salmon, Cod, Pollock" },
-                    { country: "Pakistan", specialty: "Shrimp, Prawns, Pomfret, Sole" },
-                    { country: "Sri Lanka", specialty: "Tuna, Swordfish, Crab, Lobster" },
-                  ].map((source) => (
-                    <div key={source.country} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+                  {importSources.map((source) => (
+                    <div key={source.country.en} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]">
                       <div className="w-2 h-2 mt-1.5 rounded-full bg-gold-400 flex-shrink-0" />
                       <div>
-                        <span className="text-white font-body text-sm font-semibold">{source.country}</span>
-                        <p className="text-white/40 font-body text-xs mt-0.5">{source.specialty}</p>
+                        <span className="text-white font-body text-sm font-semibold">{source.country[lang]}</span>
+                        <p className="text-white/40 font-body text-xs mt-0.5">{source.specialty[lang]}</p>
                       </div>
                     </div>
                   ))}
@@ -201,8 +199,8 @@ export default function GlobalReach() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <p className="text-gold-400 text-xs font-body font-semibold tracking-wider uppercase">Global Sourcing</p>
-                  <p className="text-white font-display font-bold text-lg">Premium Import Network</p>
+                  <p className="text-gold-400 text-xs font-body font-semibold tracking-wider uppercase">{t("global.globalSourcing")}</p>
+                  <p className="text-white font-display font-bold text-lg">{t("global.importNetwork")}</p>
                 </div>
               </div>
             </div>
@@ -221,28 +219,24 @@ export default function GlobalReach() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 rounded-full bg-gold-400 animate-pulse" />
                   <span className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-gold-400">
-                    Gulf Region Leaders
+                    {t("global.gulfTag")}
                   </span>
                 </div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
-                  Serving the
+                  {t("global.gulfTitle1")}
                   <br />
-                  <span className="text-teal-400">Gulf & Beyond</span>
+                  <span className="text-teal-400">{t("global.gulfTitle2")}</span>
                 </h3>
                 <p className="text-white/50 font-body leading-relaxed mb-6">
-                  With our headquarters in Umm Al Quwain, UAE, we&apos;ve built a
-                  robust distribution network spanning the entire GCC region and beyond.
-                  Our logistics infrastructure ensures premium fresh quality from our
-                  facility to markets across Qatar, Oman, Kuwait, Saudi Arabia,
-                  Pakistan, and Sri Lanka.
+                  {t("global.gulfDesc")}
                 </p>
 
                 <div className="space-y-3">
                   {gccMarkets.map((market) => (
-                    <div key={market.country} className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full ${market.role === "Headquarters" ? "bg-gold-400" : market.role === "Import Partner" ? "bg-teal-300" : "bg-teal-400"}`} />
-                      <span className="text-white font-body text-sm font-medium">{market.country}</span>
-                      <span className="text-white/30 font-body text-xs">&mdash; {market.role}</span>
+                    <div key={market.country.en} className="flex items-center gap-3">
+                      <div className={`w-2 h-2 rounded-full ${market.role.en === "Headquarters" ? "bg-gold-400" : market.role.en === "Import Partner" ? "bg-teal-300" : "bg-teal-400"}`} />
+                      <span className="text-white font-body text-sm font-medium">{market.country[lang]}</span>
+                      <span className="text-white/30 font-body text-xs">&mdash; {market.role[lang]}</span>
                     </div>
                   ))}
                 </div>
@@ -251,7 +245,7 @@ export default function GlobalReach() {
               <div className="grid grid-cols-2 gap-4">
                 {expansionStats.map((stat, i) => (
                   <div
-                    key={stat.label}
+                    key={stat.label.en}
                     className={`p-5 rounded-xl border transition-all duration-300 hover:border-teal-500/30 ${
                       i === 0
                         ? "border-gold-500/20 bg-gold-500/5"
@@ -259,7 +253,7 @@ export default function GlobalReach() {
                     }`}
                   >
                     <div className="font-display font-bold text-2xl text-white mb-1">{stat.value}</div>
-                    <div className="text-xs font-body text-white/40">{stat.label}</div>
+                    <div className="text-xs font-body text-white/40">{stat.label[lang]}</div>
                   </div>
                 ))}
               </div>

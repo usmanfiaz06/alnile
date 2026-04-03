@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -40,49 +41,45 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   );
 }
 
-const stats = [
-  { value: 40, suffix: "+", label: "Years of Excellence" },
-  { value: 25, suffix: "+", label: "Countries Served" },
-  { value: 10000, suffix: "+", label: "Tons Exported Annually" },
-  { value: 100, suffix: "%", label: "Quality Certified" },
-];
-
 export default function About() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: 40, suffix: "+", label: t("about.years") },
+    { value: 25, suffix: "+", label: t("about.countries") },
+    { value: 10000, suffix: "+", label: t("about.tons") },
+    { value: 100, suffix: "%", label: t("about.certified") },
+  ];
+
   return (
     <section id="about" className="py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
         <ScrollReveal className="text-center mb-20">
           <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold-600 mb-4 block">
-            Our Story
+            {t("about.tag")}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-navy-900 mb-6">
-            A Heritage of{" "}
-            <span className="text-gold-600 italic">Excellence</span>
+            {t("about.title1")}
+            <span className="text-gold-600 italic">{t("about.title2")}</span>
           </h2>
           <div className="decorative-line mx-auto mb-8" />
           <p className="text-lg md:text-xl text-navy-600 max-w-3xl mx-auto font-body leading-relaxed">
-            Since 1981, Al Nile Fish has been a cornerstone of the premium fresh
-            seafood import &amp; export industry — connecting the finest catch with
-            discerning markets across the Gulf and beyond.
+            {t("about.desc")}
           </p>
         </ScrollReveal>
 
-        {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          {/* Left - Image */}
           <ScrollReveal variant="left">
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1606850246029-483e189a5a64?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1553659971-f01207815844?auto=format&fit=crop&w=800&q=80"
                   alt="Fresh fish at market"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent" />
               </div>
 
-              {/* Floating accent card */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-5 shadow-xl shadow-gold-500/10 border border-gold-100">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center">
@@ -92,40 +89,31 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-display font-bold text-navy-900">HACCP & ISO</p>
-                    <p className="text-xs text-navy-500 font-body">Certified Excellence</p>
+                    <p className="text-xs text-navy-500 font-body">{t("about.certified")}</p>
                   </div>
                 </div>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Right - Text Content */}
           <ScrollReveal variant="right">
             <div className="space-y-6">
               <h3 className="font-display text-3xl md:text-4xl font-bold text-navy-900">
-                From the Heart of the UAE
+                {t("about.fromHeart1")}
                 <br />
-                <span className="text-teal-600">to the World</span>
+                <span className="text-teal-600">{t("about.fromHeart2")}</span>
               </h3>
 
               <p className="text-navy-600 font-body leading-relaxed text-lg">
-                Headquartered in Umm Al Quwain, United Arab Emirates, Al Nile Fish has
-                spent over four decades perfecting the art of sourcing, processing, and
-                delivering the finest fresh seafood. We combine deep industry expertise
-                with cutting-edge technology to ensure every product meets the highest
-                international standards.
+                {t("about.p1")}
               </p>
 
               <p className="text-navy-600 font-body leading-relaxed text-lg">
-                Today, Al Nile Fish proudly serves partners across the Gulf region —
-                including Qatar, Oman, Kuwait, and Saudi Arabia — while continuing
-                to expand our global footprint. Our commitment to freshness, sustainability,
-                and excellence has made us a trusted name in the seafood industry.
+                {t("about.p2")}
               </p>
 
-              {/* Values pills */}
               <div className="flex flex-wrap gap-3 pt-2">
-                {["Sustainability", "Quality First", "Gulf Leaders", "Innovation"].map(
+                {[t("about.sustainability"), t("about.qualityFirst"), t("about.gulfLeaders"), t("about.innovation")].map(
                   (value) => (
                     <span
                       key={value}
@@ -140,7 +128,6 @@ export default function About() {
           </ScrollReveal>
         </div>
 
-        {/* Stats Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, i) => (
             <ScrollReveal key={stat.label} delay={i * 100}>

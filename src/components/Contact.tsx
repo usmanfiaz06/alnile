@@ -2,17 +2,10 @@
 
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
-
-const inquiryTypes = [
-  "General Inquiry",
-  "Product Information",
-  "Partnership / Distribution",
-  "Custom Order",
-  "Export / Import Query",
-  "Other",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,6 +16,15 @@ export default function Contact() {
     subscribe: false,
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const inquiryTypes = [
+    t("inquiry.general"),
+    t("inquiry.product"),
+    t("inquiry.partnership"),
+    t("inquiry.custom"),
+    t("inquiry.export"),
+    t("inquiry.other"),
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -40,23 +42,20 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 md:py-32 lg:py-40 bg-pearl relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        {/* Section Header */}
         <ScrollReveal className="text-center mb-16">
           <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold-600 mb-4 block">
-            Get in Touch
+            {t("contact.tag")}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-navy-900 mb-6">
-            Contact <span className="text-gold-600 italic">Us</span>
+            {t("contact.title")}<span className="text-gold-600 italic">{t("contact.title2")}</span>
           </h2>
           <div className="decorative-line mx-auto mb-8" />
           <p className="text-lg text-navy-600 max-w-3xl mx-auto font-body leading-relaxed">
-            Whether you&apos;re looking for premium seafood products, exploring partnership opportunities,
-            or have a specific inquiry — we&apos;d love to hear from you.
+            {t("contact.desc")}
           </p>
         </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Form */}
           <ScrollReveal variant="left" className="lg:col-span-3">
             {submitted ? (
               <div className="bg-white rounded-2xl p-12 text-center shadow-lg border border-gold-100/50">
@@ -67,10 +66,10 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="font-display font-bold text-2xl text-navy-900 mb-3">
-                  Message Sent Successfully
+                  {t("contact.success")}
                 </h3>
                 <p className="text-navy-500 font-body mb-6">
-                  Thank you for reaching out. Our team will review your inquiry and get back to you within 24 hours.
+                  {t("contact.successDesc")}
                 </p>
                 <button
                   onClick={() => {
@@ -79,37 +78,37 @@ export default function Contact() {
                   }}
                   className="text-gold-600 font-body font-medium hover:text-gold-500 transition-colors"
                 >
-                  Send another message
+                  {t("contact.sendAnother")}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gold-100/50">
                 <div className="grid sm:grid-cols-2 gap-5 mb-5">
                   <div>
-                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">Full Name *</label>
+                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.name")} *</label>
                     <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Smith" className="form-input" />
                   </div>
                   <div>
-                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">Email Address *</label>
+                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.email")} *</label>
                     <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" className="form-input" />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5 mb-5">
                   <div>
-                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">Phone Number</label>
+                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.phone")}</label>
                     <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+971 XX XXX XXXX" className="form-input" />
                   </div>
                   <div>
-                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">Company Name</label>
+                    <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.company")}</label>
                     <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Your Company" className="form-input" />
                   </div>
                 </div>
 
                 <div className="mb-5">
-                  <label className="block text-sm font-body font-medium text-navy-700 mb-2">Inquiry Type *</label>
+                  <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.inquiryType")} *</label>
                   <select name="inquiryType" value={formData.inquiryType} onChange={handleChange} required className="form-input appearance-none cursor-pointer">
-                    <option value="">Select inquiry type...</option>
+                    <option value="">{t("contact.selectType")}</option>
                     {inquiryTypes.map((type) => (
                       <option key={type} value={type}>{type}</option>
                     ))}
@@ -117,10 +116,10 @@ export default function Contact() {
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-body font-medium text-navy-700 mb-2">Your Message *</label>
+                  <label className="block text-sm font-body font-medium text-navy-700 mb-2">{t("contact.message")} *</label>
                   <textarea
                     name="message" value={formData.message} onChange={handleChange} required rows={5}
-                    placeholder="Tell us about your requirements..."
+                    placeholder={t("contact.messagePlaceholder")}
                     className="form-input resize-none"
                   />
                 </div>
@@ -135,23 +134,22 @@ export default function Contact() {
                     </div>
                   </div>
                   <span className="text-sm text-navy-500 font-body group-hover:text-navy-700 transition-colors">
-                    Subscribe to Al Nile Fish updates — new products, expansion news, and partnership opportunities.
+                    {t("contact.subscribe")}
                   </span>
                 </label>
 
                 <button type="submit" className="btn-gold w-full sm:w-auto">
-                  Send Message
+                  {t("contact.send")}
                 </button>
               </form>
             )}
           </ScrollReveal>
 
-          {/* Contact Info Sidebar */}
           <ScrollReveal variant="right" className="lg:col-span-2">
             <div className="space-y-6">
               {[
                 {
-                  title: "Head Office",
+                  title: t("contact.headOffice"),
                   details: ["Al Nile Import & Export", "of Fish & Foodstuff", "Ittahad Road, Umm Al Quwain", "United Arab Emirates"],
                   icon: (
                     <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -161,7 +159,7 @@ export default function Contact() {
                   ),
                 },
                 {
-                  title: "Email Us",
+                  title: t("contact.emailUs"),
                   details: ["nfc@alnilefish.com", "info@alnilefish.com"],
                   icon: (
                     <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -170,7 +168,7 @@ export default function Contact() {
                   ),
                 },
                 {
-                  title: "Call Us",
+                  title: t("contact.callUs"),
                   details: ["+971 6 766 6283"],
                   icon: (
                     <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -179,8 +177,8 @@ export default function Contact() {
                   ),
                 },
                 {
-                  title: "Business Hours",
-                  details: ["Sunday - Thursday: 8AM - 6PM", "Friday - Saturday: Closed"],
+                  title: t("contact.hours"),
+                  details: [t("contact.sunThu"), t("contact.friSat")],
                   icon: (
                     <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -201,9 +199,8 @@ export default function Contact() {
                 </div>
               ))}
 
-              {/* Social Links */}
               <div className="pt-4">
-                <h4 className="font-display font-bold text-navy-900 mb-4">Follow Us</h4>
+                <h4 className="font-display font-bold text-navy-900 mb-4">{t("contact.followUs")}</h4>
                 <div className="flex gap-3">
                   {[
                     { name: "LinkedIn", icon: <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg> },

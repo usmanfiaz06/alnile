@@ -2,20 +2,22 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Products", href: "#products" },
-  { label: "Quality", href: "#quality" },
-  { label: "Markets", href: "#global" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
+  const { t, lang, setLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.products"), href: "#products" },
+    { label: t("nav.quality"), href: "#quality" },
+    { label: t("nav.markets"), href: "#global" },
+    { label: t("nav.gallery"), href: "#gallery" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => {
@@ -79,10 +81,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-display font-bold tracking-wide text-white leading-tight">
-                Al Nile
+                {lang === "ar" ? "النيل" : "Al Nile"}
               </span>
               <span className="text-[10px] font-body font-medium tracking-[0.3em] uppercase text-gold-400 leading-tight">
-                Fish
+                {lang === "ar" ? "أسماك" : "Fish"}
               </span>
             </div>
           </a>
@@ -104,12 +106,22 @@ export default function Navbar() {
           {/* Desktop Right Side */}
           <div className="hidden lg:flex items-center gap-4">
             <div className="flex items-center gap-1 text-xs font-body text-white/50">
-              <button className="px-2 py-1 rounded text-white/90 bg-white/10 transition-colors">EN</button>
+              <button
+                onClick={() => setLang("en")}
+                className={`px-2 py-1 rounded transition-colors ${lang === "en" ? "text-white/90 bg-white/10" : "hover:text-white/90 hover:bg-white/5"}`}
+              >
+                EN
+              </button>
               <span className="text-white/20">|</span>
-              <button className="px-2 py-1 rounded hover:text-white/90 hover:bg-white/5 transition-colors">AR</button>
+              <button
+                onClick={() => setLang("ar")}
+                className={`px-2 py-1 rounded transition-colors ${lang === "ar" ? "text-white/90 bg-white/10" : "hover:text-white/90 hover:bg-white/5"}`}
+              >
+                AR
+              </button>
             </div>
             <button onClick={() => handleNavClick("#contact")} className="btn-gold text-xs !px-6 !py-3">
-              Get in Touch
+              {t("nav.getInTouch")}
             </button>
           </div>
 
@@ -158,8 +170,18 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.08, duration: 0.4 }}
                 className="mt-4 flex items-center gap-3"
               >
-                <button className="px-3 py-1.5 rounded text-sm text-white/90 bg-white/10">EN</button>
-                <button className="px-3 py-1.5 rounded text-sm text-white/50 hover:text-white/90 hover:bg-white/5 transition-colors">AR</button>
+                <button
+                  onClick={() => setLang("en")}
+                  className={`px-3 py-1.5 rounded text-sm ${lang === "en" ? "text-white/90 bg-white/10" : "text-white/50 hover:text-white/90 hover:bg-white/5"} transition-colors`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("ar")}
+                  className={`px-3 py-1.5 rounded text-sm ${lang === "ar" ? "text-white/90 bg-white/10" : "text-white/50 hover:text-white/90 hover:bg-white/5"} transition-colors`}
+                >
+                  AR
+                </button>
               </motion.div>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -168,7 +190,7 @@ export default function Navbar() {
                 onClick={() => handleNavClick("#contact")}
                 className="btn-gold mt-2"
               >
-                Get in Touch
+                {t("nav.getInTouch")}
               </motion.button>
             </nav>
           </motion.div>

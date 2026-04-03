@@ -1,3 +1,6 @@
+"use client";
+
+import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -14,7 +17,7 @@ import ContactPopup from "@/components/ContactPopup";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <Preloader />
       <Navbar />
       <ContactPopup />
@@ -30,6 +33,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Subscribe() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -29,11 +31,10 @@ export default function Subscribe() {
               </div>
 
               <h3 className="font-display font-bold text-2xl md:text-3xl text-navy-900 mb-3">
-                Stay in the <span className="text-gold-600 italic">Loop</span>
+                {t("subscribe.title1")}<span className="text-gold-600 italic">{t("subscribe.title2")}</span>
               </h3>
               <p className="text-navy-500 font-body max-w-lg mx-auto mb-8">
-                Subscribe for updates on new products, seasonal offerings,
-                market expansion news, and partnership opportunities.
+                {t("subscribe.desc")}
               </p>
 
               {subscribed ? (
@@ -42,7 +43,7 @@ export default function Subscribe() {
                     <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
                     <circle cx="12" cy="12" r="10" />
                   </svg>
-                  Thank you for subscribing! We&apos;ll be in touch.
+                  {t("subscribe.thanks")}
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
@@ -50,18 +51,18 @@ export default function Subscribe() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder={t("subscribe.placeholder")}
                     required
                     className="form-input flex-1 !rounded-full text-center sm:text-left"
                   />
                   <button type="submit" className="btn-gold whitespace-nowrap !rounded-full">
-                    Subscribe
+                    {t("subscribe.btn")}
                   </button>
                 </form>
               )}
 
               <p className="text-xs text-navy-400 font-body mt-4">
-                No spam, ever. Unsubscribe anytime.
+                {t("subscribe.nospam")}
               </p>
             </div>
           </div>

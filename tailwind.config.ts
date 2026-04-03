@@ -51,6 +51,7 @@ const config: Config = {
       fontFamily: {
         display: ["Playfair Display", "Georgia", "serif"],
         body: ["Inter", "system-ui", "sans-serif"],
+        arabic: ["Noto Sans Arabic", "Inter", "system-ui", "sans-serif"],
       },
       animation: {
         "shimmer": "shimmer 3s linear infinite",
