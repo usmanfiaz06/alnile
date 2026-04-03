@@ -57,7 +57,7 @@ export default function Preloader() {
           >
             <h2 className="font-display font-bold text-2xl text-white mb-1">Al Nile Fish</h2>
             <p className="text-xs font-body tracking-[0.3em] uppercase text-gold-400/70">
-              Premium Frozen Seafood
+              Premium Fresh Seafood
             </p>
           </motion.div>
 

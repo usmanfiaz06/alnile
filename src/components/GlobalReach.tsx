@@ -65,11 +65,30 @@ function AnimatedMap() {
         </g>
       ))}
 
+      {/* Import Source Markers */}
+      {[
+        { cx: 490, cy: 80, label: "RUSSIA", delay: 1300 },
+        { cx: 565, cy: 160, label: "PAKISTAN", delay: 1500 },
+        { cx: 580, cy: 175, label: "SRI LANKA", delay: 1700 },
+      ].map((market) => (
+        <g
+          key={market.label}
+          className={`transition-all duration-700 ${visible ? "opacity-80" : "opacity-0"}`}
+          style={{ transitionDelay: `${market.delay}ms` }}
+        >
+          <circle cx={market.cx} cy={market.cy} r="4" fill="#C5A572" />
+          <circle cx={market.cx} cy={market.cy} r="2" fill="#E0C78F" />
+          <text x={market.cx} y={market.cy - 8} textAnchor="middle" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="600">
+            {market.label}
+          </text>
+        </g>
+      ))}
+
       {/* Other markets */}
       {[
-        { cx: 440, cy: 95, label: "EU", delay: 1300 },
-        { cx: 670, cy: 130, label: "ASIA", delay: 1500 },
-        { cx: 460, cy: 200, label: "AFRICA", delay: 1700 },
+        { cx: 440, cy: 95, label: "EU", delay: 1900 },
+        { cx: 670, cy: 130, label: "ASIA", delay: 2100 },
+        { cx: 460, cy: 200, label: "AFRICA", delay: 2300 },
       ].map((market) => (
         <g
           key={market.label}
@@ -92,6 +111,8 @@ const gccMarkets = [
   { country: "Qatar", role: "Active Market", city: "Doha" },
   { country: "Kuwait", role: "Active Market", city: "Kuwait City" },
   { country: "Oman", role: "Active Market", city: "Muscat" },
+  { country: "Pakistan", role: "Import Partner", city: "Karachi" },
+  { country: "Sri Lanka", role: "Import Partner", city: "Colombo" },
 ];
 
 const expansionStats = [
@@ -128,6 +149,66 @@ export default function GlobalReach() {
           </div>
         </ScrollReveal>
 
+        {/* Russia Import Section */}
+        <ScrollReveal className="mb-16">
+          <div className="rounded-2xl p-8 md:p-12 bg-white/[0.03] border border-white/[0.06] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-64 h-64 opacity-10"
+              style={{ background: "radial-gradient(circle, #C5A572 0%, transparent 70%)", filter: "blur(40px)" }}
+            />
+
+            <div className="grid lg:grid-cols-2 gap-10 items-center relative">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-teal-400 animate-pulse" />
+                  <span className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-teal-400">
+                    Import Operations
+                  </span>
+                </div>
+                <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+                  Importing from
+                  <br />
+                  <span className="gold-shimmer">Russia & Beyond</span>
+                </h3>
+                <p className="text-white/50 font-body leading-relaxed mb-6">
+                  Al Nile Fish has established strong import partnerships with Russia&apos;s
+                  premier fisheries, bringing the finest cold-water catch to the Gulf
+                  market. Our sourcing network also extends to Pakistan and Sri Lanka,
+                  ensuring a diverse and premium selection of fresh seafood year-round.
+                </p>
+
+                <div className="space-y-3">
+                  {[
+                    { country: "Russia", specialty: "Cold-water fish, Salmon, Cod, Pollock" },
+                    { country: "Pakistan", specialty: "Shrimp, Prawns, Pomfret, Sole" },
+                    { country: "Sri Lanka", specialty: "Tuna, Swordfish, Crab, Lobster" },
+                  ].map((source) => (
+                    <div key={source.country} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+                      <div className="w-2 h-2 mt-1.5 rounded-full bg-gold-400 flex-shrink-0" />
+                      <div>
+                        <span className="text-white font-body text-sm font-semibold">{source.country}</span>
+                        <p className="text-white/40 font-body text-xs mt-0.5">{source.specialty}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                  alt="Fresh seafood imports"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-gold-400 text-xs font-body font-semibold tracking-wider uppercase">Global Sourcing</p>
+                  <p className="text-white font-display font-bold text-lg">Premium Import Network</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
         {/* GCC Highlight */}
         <ScrollReveal className="mb-16">
           <div className="rounded-2xl p-8 md:p-12 bg-white/[0.03] border border-white/[0.06] relative overflow-hidden">
@@ -150,15 +231,16 @@ export default function GlobalReach() {
                 </h3>
                 <p className="text-white/50 font-body leading-relaxed mb-6">
                   With our headquarters in Umm Al Quwain, UAE, we&apos;ve built a
-                  robust distribution network spanning the entire GCC region.
-                  Our cold-chain infrastructure ensures premium quality from our
-                  facility to markets across Qatar, Oman, Kuwait, and Saudi Arabia.
+                  robust distribution network spanning the entire GCC region and beyond.
+                  Our logistics infrastructure ensures premium fresh quality from our
+                  facility to markets across Qatar, Oman, Kuwait, Saudi Arabia,
+                  Pakistan, and Sri Lanka.
                 </p>
 
                 <div className="space-y-3">
                   {gccMarkets.map((market) => (
                     <div key={market.country} className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full ${market.role === "Headquarters" ? "bg-gold-400" : "bg-teal-400"}`} />
+                      <div className={`w-2 h-2 rounded-full ${market.role === "Headquarters" ? "bg-gold-400" : market.role === "Import Partner" ? "bg-teal-300" : "bg-teal-400"}`} />
                       <span className="text-white font-body text-sm font-medium">{market.country}</span>
                       <span className="text-white/30 font-body text-xs">&mdash; {market.role}</span>
                     </div>

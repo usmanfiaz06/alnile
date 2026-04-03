@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Al Nile Fish | Premium Frozen Seafood — UAE's Finest Since 1981",
+  title: "Al Nile Fish | Premium Fresh Seafood Import & Export — UAE's Finest Since 1981",
   description:
-    "Al Nile Fish — premium frozen seafood import & export from Umm Al Quwain, UAE since 1981. Serving Qatar, Oman, Kuwait, KSA & beyond. HACCP & ISO certified.",
+    "Al Nile Fish — premium fresh seafood import & export from Umm Al Quwain, UAE since 1981. Importing from Russia, Pakistan, Sri Lanka. Serving Qatar, Oman, Kuwait, KSA & beyond. HACCP & ISO certified.",
   keywords: [
-    "frozen seafood UAE",
+    "fresh seafood UAE",
     "premium fish",
     "seafood export",
     "seafood import",
+    "Russia seafood import",
+    "Pakistan seafood",
+    "Sri Lanka seafood",
     "Nile Perch",
     "Tilapia",
     "Gulf seafood",
@@ -20,9 +23,9 @@ export const metadata: Metadata = {
     "GCC seafood supplier",
   ],
   openGraph: {
-    title: "Al Nile Fish | Premium Frozen Seafood",
+    title: "Al Nile Fish | Premium Fresh Seafood Import & Export",
     description:
-      "UAE's finest frozen seafood since 1981. Serving the Gulf region and beyond. Nile Perch, Tilapia, Shellfish & more.",
+      "UAE's finest fresh seafood since 1981. Importing from Russia, Pakistan & Sri Lanka. Serving the Gulf region and beyond.",
     type: "website",
     locale: "en_US",
     siteName: "Al Nile Fish",

@@ -9,7 +9,7 @@ const footerLinks = {
     { label: "Gallery", href: "#gallery" },
   ],
   services: [
-    { label: "Frozen Fish", href: "#products" },
+    { label: "Fresh Fish", href: "#products" },
     { label: "Shellfish & Crustaceans", href: "#products" },
     { label: "Premium Fillets", href: "#products" },
     { label: "Specialty Products", href: "#products" },
@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
 
             <p className="text-white/40 font-body text-sm leading-relaxed max-w-sm mb-4">
-              Premium frozen seafood from Umm Al Quwain, UAE to the world.
+              Premium fresh seafood import &amp; export from Umm Al Quwain, UAE to the world.
               Over four decades of excellence in sourcing, processing, and delivering
               the finest seafood products across the Gulf and beyond.
             </p>

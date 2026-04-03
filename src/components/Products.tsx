@@ -6,13 +6,13 @@ import ScrollReveal from "./ScrollReveal";
 
 const categories = [
   {
-    id: "frozen-fish",
-    name: "Frozen Fish",
+    id: "fresh-fish",
+    name: "Fresh Fish",
     subtitle: "Whole & Dressed",
     description:
-      "Premium whole frozen fish sourced from pristine waters. Nile Perch, Tilapia, Mackerel, and Sardines — expertly processed and flash-frozen at peak freshness.",
+      "Premium whole fresh fish sourced from pristine waters worldwide. Nile Perch, Tilapia, Mackerel, and Sardines — expertly handled and delivered at peak freshness.",
     products: ["Nile Perch", "Tilapia", "Mackerel", "Sardines", "Red Mullet", "Sea Bass"],
-    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80",
     accent: "teal",
   },
   {
@@ -20,7 +20,7 @@ const categories = [
     name: "Shellfish & Crustaceans",
     subtitle: "Ocean Delicacies",
     description:
-      "The finest shrimp, prawns, crab, and lobster — harvested from pristine waters and processed under strict HACCP standards. Available in multiple grades and pack sizes.",
+      "The finest shrimp, prawns, crab, and lobster — freshly harvested from pristine waters and handled under strict HACCP standards. Available in multiple grades and pack sizes.",
     products: ["Tiger Prawns", "White Shrimp", "Blue Crab", "Lobster Tails", "Crayfish", "Langoustine"],
     image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80",
     accent: "gold",
@@ -30,9 +30,9 @@ const categories = [
     name: "Premium Fillets",
     subtitle: "Ready to Cook",
     description:
-      "Boneless, skin-on or skinless fillets prepared from the freshest catch. IQF technology ensures each piece retains optimal texture, flavour, and nutritional value.",
+      "Boneless, skin-on or skinless fillets prepared from the freshest catch. Each piece retains optimal texture, flavour, and nutritional value — delivered fresh to your market.",
     products: ["Nile Perch Fillets", "Tilapia Fillets", "Cod Fillets", "Hake Fillets", "Pangasius", "Salmon Portions"],
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?auto=format&fit=crop&w=600&q=80",
     accent: "teal",
   },
   {
@@ -40,9 +40,9 @@ const categories = [
     name: "Specialty Products",
     subtitle: "Unique Offerings",
     description:
-      "Curated specialty items including calamari, octopus, cuttlefish, and fish roe — sourced from select fisheries across the region.",
+      "Curated specialty items including calamari, octopus, cuttlefish, and fish roe — freshly sourced from select fisheries across the region and beyond.",
     products: ["Calamari Rings", "Baby Octopus", "Cuttlefish", "Fish Roe", "Surimi", "Seafood Mix"],
-    image: "https://images.unsplash.com/photo-1579631542720-3a87824fff86?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=600&q=80",
     accent: "gold",
   },
 ];
@@ -64,8 +64,8 @@ export default function Products() {
           </h2>
           <div className="decorative-line mx-auto mb-8" />
           <p className="text-lg text-white/50 max-w-3xl mx-auto font-body leading-relaxed">
-            A curated selection of the world&apos;s finest frozen seafood, sourced responsibly
-            and processed to the highest international standards.
+            A curated selection of the world&apos;s finest fresh seafood, sourced responsibly
+            and delivered to the highest international standards.
           </p>
         </ScrollReveal>
 

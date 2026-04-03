@@ -30,7 +30,7 @@ const galleryItems = [
     id: 4,
     title: "Fresh Fish Market",
     category: "Sourcing",
-    image: "https://images.unsplash.com/photo-1553659971-f01207815844?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1606850246029-483e189a5a64?auto=format&fit=crop&w=600&q=80",
     aspectRatio: "aspect-[3/4]",
   },
   {

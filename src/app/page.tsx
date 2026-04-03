@@ -10,12 +10,14 @@ import Subscribe from "@/components/Subscribe";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import ContactPopup from "@/components/ContactPopup";
 
 export default function Home() {
   return (
     <>
       <Preloader />
       <Navbar />
+      <ContactPopup />
       <main>
         <Hero />
         <About />

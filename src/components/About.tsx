@@ -62,9 +62,9 @@ export default function About() {
           </h2>
           <div className="decorative-line mx-auto mb-8" />
           <p className="text-lg md:text-xl text-navy-600 max-w-3xl mx-auto font-body leading-relaxed">
-            Since 1981, Al Nile Fish has been a cornerstone of the premium frozen
-            seafood industry — connecting the finest catch with discerning markets
-            across the Gulf and beyond.
+            Since 1981, Al Nile Fish has been a cornerstone of the premium fresh
+            seafood import &amp; export industry — connecting the finest catch with
+            discerning markets across the Gulf and beyond.
           </p>
         </ScrollReveal>
 
@@ -75,7 +75,7 @@ export default function About() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1553659971-f01207815844?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1606850246029-483e189a5a64?auto=format&fit=crop&w=800&q=80"
                   alt="Fresh fish at market"
                   className="w-full h-full object-cover"
                 />
@@ -111,7 +111,7 @@ export default function About() {
               <p className="text-navy-600 font-body leading-relaxed text-lg">
                 Headquartered in Umm Al Quwain, United Arab Emirates, Al Nile Fish has
                 spent over four decades perfecting the art of sourcing, processing, and
-                delivering the finest frozen seafood. We combine deep industry expertise
+                delivering the finest fresh seafood. We combine deep industry expertise
                 with cutting-edge technology to ensure every product meets the highest
                 international standards.
               </p>

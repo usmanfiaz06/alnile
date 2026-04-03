@@ -5,16 +5,16 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const galleryItems = [
-  { id: 1, title: "Fresh Nile Perch Catch", category: "Products", image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/5]" },
-  { id: 2, title: "Seafood Processing", category: "Operations", image: "https://images.unsplash.com/photo-1535140728325-a4d3707eee61?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
+  { id: 1, title: "Fresh Nile Perch Catch", category: "Products", image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/5]" },
+  { id: 2, title: "Seafood Processing", category: "Operations", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
   { id: 3, title: "Premium Tiger Prawns", category: "Products", image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-square" },
-  { id: 4, title: "Quality Inspection", category: "Quality", image: "https://images.unsplash.com/photo-1579631542720-3a87824fff86?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[3/4]" },
-  { id: 5, title: "Flash Freezing Line", category: "Operations", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
+  { id: 4, title: "Quality Inspection", category: "Quality", image: "https://images.unsplash.com/photo-1606850246029-483e189a5a64?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[3/4]" },
+  { id: 5, title: "Fresh Fish Display", category: "Operations", image: "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
   { id: 6, title: "Tilapia Fillets Display", category: "Products", image: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/5]" },
-  { id: 7, title: "Cold Storage Facility", category: "Facility", image: "https://images.unsplash.com/photo-1553659971-f01207815844?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
+  { id: 7, title: "Fresh Fish Market", category: "Facility", image: "https://images.unsplash.com/photo-1498654200943-1088dd4438ae?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
   { id: 8, title: "Lobster & Shellfish", category: "Products", image: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-square" },
   { id: 9, title: "Sustainable Sourcing", category: "Sourcing", image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[3/4]" },
-  { id: 10, title: "Fresh Fish Market", category: "Sourcing", image: "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
+  { id: 10, title: "Fresh Fish Selection", category: "Sourcing", image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
   { id: 11, title: "Premium Salmon", category: "Products", image: "https://images.unsplash.com/photo-1574781330855-d0db8cc6a79c?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/5]" },
   { id: 12, title: "Seafood Preparation", category: "Operations", image: "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?auto=format&fit=crop&w=800&q=80", aspectRatio: "aspect-[4/3]" },
 ];

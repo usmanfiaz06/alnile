@@ -38,8 +38,8 @@ const processSteps = [
   },
   {
     step: "03",
-    title: "Flash Freezing",
-    description: "IQF technology locks in peak freshness, nutrition, and texture — from ocean to freezer in hours.",
+    title: "Quality Assurance",
+    description: "Rigorous testing and inspection at every stage ensures peak freshness, nutrition, and texture — from ocean to market.",
   },
   {
     step: "04",
@@ -72,7 +72,7 @@ export default function Quality() {
         <ScrollReveal className="mb-24">
           <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1535140728325-a4d3707eee61?auto=format&fit=crop&w=1400&q=80"
+              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1400&q=80"
               alt="Quality seafood processing"
               className="w-full h-full object-cover"
             />

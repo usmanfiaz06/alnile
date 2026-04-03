@@ -33,7 +33,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="hero-bg absolute inset-0 scale-110 will-change-transform">
         <img
-          src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=1920&q=80"
+          src="https://images.unsplash.com/photo-1498654200943-1088dd4438ae?auto=format&fit=crop&w=1920&q=80"
           alt="Fresh seafood display"
           className="w-full h-full object-cover"
         />
@@ -65,9 +65,9 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
           className="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-[0.9] mb-8 tracking-tight"
         >
-          Premium
+          Premium Fresh
           <br />
-          <span className="gold-shimmer">Frozen Seafood</span>
+          <span className="gold-shimmer">Seafood</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -77,9 +77,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-xl md:text-2xl text-white/60 font-body font-light max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          From the waters of the Gulf to tables across the world.
+          Fresh from the waters of the Gulf to tables across the world.
           <br className="hidden sm:block" />
-          Trusted by partners across the UAE, Qatar, Oman, Kuwait & Saudi Arabia.
+          Importing from Russia, Pakistan & Sri Lanka. Trusted across the UAE, Qatar, Oman, Kuwait & KSA.
         </motion.p>
 
         {/* CTA Buttons */}
