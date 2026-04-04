@@ -15,9 +15,9 @@ export default function Footer() {
     ],
     services: [
       { label: lang === "ar" ? "أسماك طازجة" : "Fresh Fish", href: "#products" },
+      { label: lang === "ar" ? "أسماك مجمدة" : "Frozen Fish", href: "#products" },
+      { label: lang === "ar" ? "مأكولات بحرية حية" : "Live Seafood", href: "#products" },
       { label: lang === "ar" ? "المحار والقشريات" : "Shellfish & Crustaceans", href: "#products" },
-      { label: lang === "ar" ? "فيليه فاخر" : "Premium Fillets", href: "#products" },
-      { label: lang === "ar" ? "منتجات مميزة" : "Specialty Products", href: "#products" },
       { label: lang === "ar" ? "طلبات مخصصة" : "Custom Orders", href: "#contact" },
     ],
     support: [

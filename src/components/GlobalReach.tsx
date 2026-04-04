@@ -91,24 +91,20 @@ function AnimatedMap() {
         <path d="M858,340 L862,335 L868,338 L870,348 L866,355 L860,352 Z" />
       </g>
 
-      {/* === Connection lines from UAE to markets === */}
+      {/* === Connection lines from UAE === */}
       <g className={`transition-all duration-1500 ${visible ? "opacity-30" : "opacity-0"}`} style={{ transitionDelay: "800ms" }}>
-        {/* UAE to Russia */}
-        <path d="M530,155 Q540,100 580,60" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
-        {/* UAE to Pakistan */}
-        <line x1="530" y1="155" x2="582" y2="165" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" />
-        {/* UAE to Sri Lanka */}
-        <path d="M530,155 Q560,185 608,222" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
-        {/* UAE to Qatar */}
+        {/* Import lines (gold) - from source countries to UAE */}
+        <line x1="582" y1="165" x2="530" y2="155" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" />
+        <path d="M590,185 Q560,170 530,155" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
+        <path d="M608,222 Q560,185 530,155" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" fill="none" />
+        <line x1="540" y1="168" x2="530" y2="155" stroke="#C5A572" strokeWidth="1" strokeDasharray="4 3" />
+        {/* Export lines (teal) - from UAE to export markets */}
+        <path d="M530,155 Q540,100 580,60" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" fill="none" />
+        <path d="M530,155 Q480,110 445,85" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" fill="none" />
         <line x1="530" y1="155" x2="525" y2="162" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
-        {/* UAE to KSA */}
         <line x1="530" y1="155" x2="505" y2="158" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
-        {/* UAE to Kuwait */}
         <line x1="530" y1="155" x2="515" y2="140" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
-        {/* UAE to Oman */}
-        <line x1="530" y1="155" x2="540" y2="168" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
-        {/* UAE to EU */}
-        <path d="M530,155 Q480,110 445,85" stroke="#C5A572" strokeWidth="0.8" strokeDasharray="4 3" fill="none" />
+        <line x1="530" y1="155" x2="520" y2="155" stroke="#4DAECE" strokeWidth="0.8" strokeDasharray="3 2" />
       </g>
 
       {/* === UAE HQ Marker === */}
@@ -121,12 +117,14 @@ function AnimatedMap() {
         </text>
       </g>
 
-      {/* === GCC Market Markers === */}
+      {/* === Export Market Markers === */}
       {[
         { cx: 525, cy: 162, label: "QATAR", lx: 525, ly: 175 },
-        { cx: 540, cy: 168, label: "OMAN", lx: 552, ly: 178 },
         { cx: 515, cy: 140, label: "KUWAIT", lx: 500, ly: 133 },
+        { cx: 520, cy: 155, label: "BAHRAIN", lx: 508, ly: 150 },
         { cx: 505, cy: 158, label: "KSA", lx: 490, ly: 165 },
+        { cx: 580, cy: 60, label: "RUSSIA", lx: 580, ly: 52 },
+        { cx: 445, cy: 85, label: "EUROPE", lx: 445, ly: 78 },
       ].map((market, i) => (
         <g
           key={market.label}
@@ -143,9 +141,10 @@ function AnimatedMap() {
 
       {/* === Import Source Markers === */}
       {[
-        { cx: 580, cy: 60, label: "RUSSIA", lx: 580, ly: 52 },
         { cx: 582, cy: 165, label: "PAKISTAN", lx: 600, ly: 162 },
+        { cx: 590, cy: 185, label: "INDIA", lx: 608, ly: 182 },
         { cx: 608, cy: 222, label: "SRI LANKA", lx: 630, ly: 225 },
+        { cx: 540, cy: 168, label: "OMAN", lx: 552, ly: 178 },
       ].map((market, i) => (
         <g
           key={market.label}
@@ -163,7 +162,6 @@ function AnimatedMap() {
 
       {/* === Other region labels === */}
       {[
-        { cx: 445, cy: 85, label: "EUROPE" },
         { cx: 460, cy: 260, label: "AFRICA" },
         { cx: 720, cy: 135, label: "EAST ASIA" },
         { cx: 155, cy: 140, label: "AMERICAS" },
@@ -182,9 +180,9 @@ function AnimatedMap() {
       {/* Legend */}
       <g className={`transition-all duration-700 ${visible ? "opacity-60" : "opacity-0"}`} style={{ transitionDelay: "2500ms" }}>
         <circle cx="40" cy="430" r="4" fill="#C5A572" />
-        <text x="50" y="433" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Import Sources</text>
-        <circle cx="140" cy="430" r="4" fill="#4DAECE" />
-        <text x="150" y="433" fill="#4DAECE" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Export Markets</text>
+        <text x="50" y="433" fill="#C5A572" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Sourcing Origins</text>
+        <circle cx="150" cy="430" r="4" fill="#4DAECE" />
+        <text x="160" y="433" fill="#4DAECE" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Export Markets</text>
         <circle cx="250" cy="430" r="4" fill="#E0C78F" />
         <text x="260" y="433" fill="#E0C78F" fontSize="8" fontFamily="Inter, sans-serif" fontWeight="500">Headquarters</text>
       </g>
@@ -197,15 +195,18 @@ const gccMarkets = [
   { country: { en: "Saudi Arabia", ar: "المملكة العربية السعودية" }, role: { en: "Major Market", ar: "سوق رئيسي" }, city: "Riyadh, Jeddah, Dammam" },
   { country: { en: "Qatar", ar: "قطر" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Doha" },
   { country: { en: "Kuwait", ar: "الكويت" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Kuwait City" },
-  { country: { en: "Oman", ar: "عمان" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Muscat" },
-  { country: { en: "Pakistan", ar: "باكستان" }, role: { en: "Import Partner", ar: "شريك استيراد" }, city: "Karachi" },
-  { country: { en: "Sri Lanka", ar: "سريلانكا" }, role: { en: "Import Partner", ar: "شريك استيراد" }, city: "Colombo" },
+  { country: { en: "Bahrain", ar: "البحرين" }, role: { en: "Active Market", ar: "سوق نشط" }, city: "Manama" },
+  { country: { en: "Oman", ar: "عمان" }, role: { en: "Import Source", ar: "مصدر استيراد" }, city: "Muscat" },
+  { country: { en: "Pakistan", ar: "باكستان" }, role: { en: "Import Source", ar: "مصدر استيراد" }, city: "Karachi" },
+  { country: { en: "India", ar: "الهند" }, role: { en: "Import Source", ar: "مصدر استيراد" }, city: "Mumbai, Chennai" },
+  { country: { en: "Sri Lanka", ar: "سريلانكا" }, role: { en: "Import Source", ar: "مصدر استيراد" }, city: "Colombo" },
 ];
 
 const importSources = [
-  { country: { en: "Russia", ar: "روسيا" }, specialty: { en: "Cold-water fish, Salmon, Cod, Pollock", ar: "أسماك المياه الباردة، السلمون، القد، البولاك" } },
   { country: { en: "Pakistan", ar: "باكستان" }, specialty: { en: "Shrimp, Prawns, Pomfret, Sole", ar: "الجمبري، القريدس، البومفريت، موسى" } },
+  { country: { en: "India", ar: "الهند" }, specialty: { en: "Vannamei Shrimp, Squid, Cuttlefish, Ribbon Fish", ar: "روبيان فاناميل، حبار، سبيدج، سمك الشريط" } },
   { country: { en: "Sri Lanka", ar: "سريلانكا" }, specialty: { en: "Tuna, Swordfish, Crab, Lobster", ar: "التونة، سمك أبو سيف، السلطعون، الكركند" } },
+  { country: { en: "Oman", ar: "عمان" }, specialty: { en: "Kingfish, Grouper, Sardines, Tuna", ar: "الكنعد، الهامور، السردين، التونة" } },
 ];
 
 const expansionStats = [

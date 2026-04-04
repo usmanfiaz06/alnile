@@ -26,8 +26,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "hero.title1": { en: "Premium Fresh", ar: "أجود المأكولات" },
   "hero.title2": { en: "Seafood", ar: "البحرية الطازجة" },
   "hero.subtitle": {
-    en: "Fresh from the waters of the Gulf to tables across the world. Importing from Russia, Pakistan & Sri Lanka. Trusted across the UAE, Qatar, Oman, Kuwait & KSA.",
-    ar: "طازجة من مياه الخليج إلى موائد العالم. نستورد من روسيا وباكستان وسريلانكا. موثوقون في الإمارات وقطر وعمان والكويت والسعودية.",
+    en: "Fresh from the waters of the Gulf to tables worldwide. We source high-quality seafood from Pakistan, India, Sri Lanka, and Oman, and export to Russia, Europe, and all GCC countries.",
+    ar: "طازجة من مياه الخليج إلى موائد العالم. نوفر مأكولات بحرية عالية الجودة من باكستان والهند وسريلانكا وعُمان، ونصدّر إلى روسيا وأوروبا وجميع دول مجلس التعاون الخليجي.",
   },
   "hero.explore": { en: "Explore Our Products", ar: "استكشف منتجاتنا" },
   "hero.touch": { en: "Get in Touch", ar: "تواصل معنا" },
@@ -48,8 +48,8 @@ const translations: Record<string, Record<Lang, string>> = {
     ar: "يقع مقرنا الرئيسي في أم القيوين، الإمارات العربية المتحدة، وقد أمضت شركة النيل للأسماك أكثر من أربعة عقود في إتقان فن التوريد والمعالجة وتوصيل أجود المأكولات البحرية الطازجة. نجمع بين الخبرة العميقة في الصناعة والتكنولوجيا المتطورة لضمان أن كل منتج يلبي أعلى المعايير الدولية.",
   },
   "about.p2": {
-    en: "Today, Al Nile Fish proudly serves partners across the Gulf region — including Qatar, Oman, Kuwait, and Saudi Arabia — while continuing to expand our global footprint. Our commitment to freshness, sustainability, and excellence has made us a trusted name in the seafood industry.",
-    ar: "اليوم، تفخر شركة النيل للأسماك بخدمة شركائها في منطقة الخليج — بما في ذلك قطر وعمان والكويت والمملكة العربية السعودية — مع الاستمرار في توسيع بصمتنا العالمية. إن التزامنا بالنضارة والاستدامة والتميز جعلنا اسمًا موثوقًا في صناعة المأكولات البحرية.",
+    en: "Today, Al Nile Fish proudly serves partners across the Gulf region — including Qatar, Oman, Kuwait, Bahrain and Saudi Arabia — while continuing to expand our global footprint. Our commitment to freshness, sustainability, and excellence has made us a trusted name in the seafood industry.",
+    ar: "اليوم، تفخر شركة النيل للأسماك بخدمة شركائها في منطقة الخليج — بما في ذلك قطر وعمان والكويت والبحرين والمملكة العربية السعودية — مع الاستمرار في توسيع بصمتنا العالمية. إن التزامنا بالنضارة والاستدامة والتميز جعلنا اسمًا موثوقًا في صناعة المأكولات البحرية.",
   },
   "about.sustainability": { en: "Sustainability", ar: "الاستدامة" },
   "about.qualityFirst": { en: "Quality First", ar: "الجودة أولاً" },
@@ -93,11 +93,11 @@ const translations: Record<string, Record<Lang, string>> = {
     ar: "من مقرنا في الإمارات، تربط شركة النيل للأسماك أجود المأكولات البحرية في العالم بالمشترين المتميزين في منطقة الخليج وخارجها.",
   },
   "global.importTag": { en: "Import Operations", ar: "عمليات الاستيراد" },
-  "global.importTitle1": { en: "Importing from", ar: "نستورد من" },
-  "global.importTitle2": { en: "Russia & Beyond", ar: "روسيا وأبعد" },
+  "global.importTitle1": { en: "Sourcing from", ar: "نوفر من" },
+  "global.importTitle2": { en: "The Best Origins", ar: "أفضل المصادر" },
   "global.importDesc": {
-    en: "Al Nile Fish has established strong import partnerships with Russia's premier fisheries, bringing the finest cold-water catch to the Gulf market. Our sourcing network also extends to Pakistan and Sri Lanka, ensuring a diverse and premium selection of fresh seafood year-round.",
-    ar: "أقامت شركة النيل للأسماك شراكات استيراد قوية مع أفضل مصائد الأسماك الروسية، لجلب أجود أسماك المياه الباردة إلى سوق الخليج. كما تمتد شبكة التوريد لدينا إلى باكستان وسريلانكا، مما يضمن تشكيلة متنوعة وفاخرة من المأكولات البحرية الطازجة على مدار العام.",
+    en: "Al Nile Fish sources high-quality seafood from Pakistan, India, Sri Lanka, and Oman — bringing the finest catch to the Gulf market and beyond. Our established partnerships with premier fisheries ensure a diverse and premium selection of fresh and frozen seafood year-round.",
+    ar: "توفر شركة النيل للأسماك مأكولات بحرية عالية الجودة من باكستان والهند وسريلانكا وعمان — لجلب أجود الأسماك إلى سوق الخليج وخارجه. شراكاتنا الراسخة مع أفضل المصائد تضمن تشكيلة متنوعة وفاخرة من المأكولات البحرية الطازجة والمجمدة على مدار العام.",
   },
   "global.globalSourcing": { en: "Global Sourcing", ar: "التوريد العالمي" },
   "global.importNetwork": { en: "Premium Import Network", ar: "شبكة استيراد فاخرة" },
@@ -105,8 +105,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "global.gulfTitle1": { en: "Serving the", ar: "نخدم" },
   "global.gulfTitle2": { en: "Gulf & Beyond", ar: "الخليج وأبعد" },
   "global.gulfDesc": {
-    en: "With our headquarters in Umm Al Quwain, UAE, we've built a robust distribution network spanning the entire GCC region and beyond. Our logistics infrastructure ensures premium fresh quality from our facility to markets across Qatar, Oman, Kuwait, Saudi Arabia, Pakistan, and Sri Lanka.",
-    ar: "من مقرنا الرئيسي في أم القيوين، الإمارات، بنينا شبكة توزيع قوية تمتد عبر منطقة مجلس التعاون الخليجي بأكملها وخارجها. تضمن بنيتنا اللوجستية جودة طازجة فائقة من منشأتنا إلى الأسواق في قطر وعمان والكويت والسعودية وباكستان وسريلانكا.",
+    en: "With our headquarters in Umm Al Quwain, UAE, we've built a robust distribution network spanning the entire GCC region. We export to Russia, Europe, and all GCC countries including Qatar, Kuwait, Bahrain, and Saudi Arabia — ensuring premium quality from our facility to markets worldwide.",
+    ar: "من مقرنا الرئيسي في أم القيوين، الإمارات، بنينا شبكة توزيع قوية تمتد عبر منطقة مجلس التعاون الخليجي بأكملها. نصدّر إلى روسيا وأوروبا وجميع دول الخليج بما في ذلك قطر والكويت والبحرين والسعودية — لضمان جودة فائقة من منشأتنا إلى الأسواق العالمية.",
   },
 
   // Gallery

@@ -19,6 +19,30 @@ const categoriesData = [
     accent: "teal",
   },
   {
+    id: "frozen-fish",
+    name: { en: "Frozen Fish", ar: "أسماك مجمدة" },
+    subtitle: { en: "IQF & Block Frozen", ar: "تجميد سريع وكتل" },
+    description: {
+      en: "Expertly flash-frozen fish locked in at peak freshness. Available as IQF or block frozen — Nile Perch, Tilapia, Mackerel, Cod, and more. Perfect for long-distance export and cold chain distribution.",
+      ar: "أسماك مجمدة بخبرة عند ذروة نضارتها. متوفرة بالتجميد السريع أو الكتل — سمك النيل، البلطي، الماكريل، القد، وغيرها. مثالية للتصدير لمسافات طويلة وتوزيع سلسلة التبريد.",
+    },
+    products: { en: ["Frozen Nile Perch", "Frozen Tilapia", "Frozen Mackerel", "Frozen Cod", "Frozen Hake", "Frozen Sardines"], ar: ["سمك النيل المجمد", "بلطي مجمد", "ماكريل مجمد", "قد مجمد", "هيك مجمد", "سردين مجمد"] },
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+    accent: "gold",
+  },
+  {
+    id: "live-seafood",
+    name: { en: "Live Seafood", ar: "مأكولات بحرية حية" },
+    subtitle: { en: "Ocean to Table", ar: "من المحيط إلى المائدة" },
+    description: {
+      en: "Premium live seafood delivered with the utmost care. Live lobsters, crabs, and fish — transported in optimal conditions to ensure they arrive in perfect health for your market.",
+      ar: "مأكولات بحرية حية فاخرة يتم توصيلها بأقصى عناية. كركند وسلطعون وأسماك حية — يتم نقلها في ظروف مثالية لضمان وصولها بصحة مثالية لسوقك.",
+    },
+    products: { en: ["Live Lobster", "Live Crab", "Live Grouper", "Live Sea Bream", "Live Hammour", "Live Shrimp"], ar: ["كركند حي", "سلطعون حي", "هامور حي", "دنيس حي", "هامور حي", "روبيان حي"] },
+    image: "https://images.unsplash.com/photo-1579631542720-3a87824fff86?auto=format&fit=crop&w=600&q=80",
+    accent: "teal",
+  },
+  {
     id: "shellfish",
     name: { en: "Shellfish & Crustaceans", ar: "المحار والقشريات" },
     subtitle: { en: "Ocean Delicacies", ar: "أطايب المحيط" },
@@ -28,30 +52,6 @@ const categoriesData = [
     },
     products: { en: ["Tiger Prawns", "White Shrimp", "Blue Crab", "Lobster Tails", "Crayfish", "Langoustine"], ar: ["قريدس النمر", "روبيان أبيض", "سلطعون أزرق", "ذيل كركند", "جراد البحر", "لانغوستين"] },
     image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80",
-    accent: "gold",
-  },
-  {
-    id: "fillets",
-    name: { en: "Premium Fillets", ar: "فيليه فاخر" },
-    subtitle: { en: "Ready to Cook", ar: "جاهز للطبخ" },
-    description: {
-      en: "Boneless, skin-on or skinless fillets prepared from the freshest catch. Each piece retains optimal texture, flavour, and nutritional value — delivered fresh to your market.",
-      ar: "فيليه بدون عظم، بالجلد أو بدونه، محضر من أطزج صيد. كل قطعة تحتفظ بالقوام والنكهة والقيمة الغذائية المثلى — تسلم طازجة لسوقك.",
-    },
-    products: { en: ["Nile Perch Fillets", "Tilapia Fillets", "Cod Fillets", "Hake Fillets", "Pangasius", "Salmon Portions"], ar: ["فيليه سمك النيل", "فيليه بلطي", "فيليه قد", "فيليه هيك", "بانغاسيوس", "قطع سلمون"] },
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
-    accent: "teal",
-  },
-  {
-    id: "specialty",
-    name: { en: "Specialty Products", ar: "منتجات مميزة" },
-    subtitle: { en: "Unique Offerings", ar: "عروض فريدة" },
-    description: {
-      en: "Curated specialty items including calamari, octopus, cuttlefish, and fish roe — freshly sourced from select fisheries across the region and beyond.",
-      ar: "منتجات مميزة منتقاة تشمل الكاليماري والأخطبوط والحبار وبيض السمك — يتم توريدها طازجة من مصائد مختارة في المنطقة وخارجها.",
-    },
-    products: { en: ["Calamari Rings", "Baby Octopus", "Cuttlefish", "Fish Roe", "Surimi", "Seafood Mix"], ar: ["حلقات كاليماري", "أخطبوط صغير", "حبار", "بيض سمك", "سوريمي", "خلطة بحرية"] },
-    image: "https://images.unsplash.com/photo-1579631542720-3a87824fff86?auto=format&fit=crop&w=600&q=80",
     accent: "gold",
   },
 ];
