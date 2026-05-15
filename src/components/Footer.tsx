@@ -72,7 +72,7 @@ export default function Footer() {
             <p className="text-white/30 font-body text-xs leading-relaxed max-w-sm mb-6">
               Ittahad Road, Umm Al Quwain, UAE
               <br />
-              nfc@alnilefish.com &middot; +971 6 766 6283
+              nfc@alnilefish.com &middot; +971 50 921 3535
             </p>
 
             <div className="flex items-center gap-4">

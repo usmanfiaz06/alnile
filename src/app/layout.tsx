@@ -119,7 +119,7 @@ const jsonLd = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          telephone: "+971-6-766-6283",
+          telephone: "+971-50-921-3535",
           contactType: "sales",
           email: "nfc@alnilefish.com",
           areaServed: ["AE", "QA", "KW", "BH", "SA", "OM", "RU", "EU"],
@@ -127,7 +127,7 @@ const jsonLd = {
         },
         {
           "@type": "ContactPoint",
-          telephone: "+971-6-766-6283",
+          telephone: "+971-50-921-3535",
           contactType: "customer service",
           email: "info@alnilefish.com",
           availableLanguage: ["English", "Arabic"],
@@ -147,7 +147,7 @@ const jsonLd = {
       name: "Al Nile Fish",
       image: "https://alnilefish.com/opengraph-image",
       url: "https://alnilefish.com",
-      telephone: "+971-6-766-6283",
+      telephone: "+971-50-921-3535",
       email: "nfc@alnilefish.com",
       priceRange: "$$",
       address: {
