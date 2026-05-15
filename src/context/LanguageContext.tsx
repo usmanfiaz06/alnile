@@ -178,6 +178,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.messagePlaceholder": { en: "Tell us about your requirements...", ar: "أخبرنا عن متطلباتك..." },
   "contact.subscribe": { en: "Subscribe to Al Nile Fish updates — new products, expansion news, and partnership opportunities.", ar: "اشترك في تحديثات النيل للأسماك — منتجات جديدة وأخبار التوسع وفرص الشراكة." },
   "contact.send": { en: "Send Message", ar: "إرسال الرسالة" },
+  "contact.sending": { en: "Sending...", ar: "جارٍ الإرسال..." },
+  "contact.error": { en: "Something went wrong. Please try again or email us directly.", ar: "حدث خطأ. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة." },
   "contact.headOffice": { en: "Head Office", ar: "المقر الرئيسي" },
   "contact.emailUs": { en: "Email Us", ar: "راسلنا" },
   "contact.callUs": { en: "Call Us", ar: "اتصل بنا" },

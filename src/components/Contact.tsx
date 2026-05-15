@@ -16,6 +16,8 @@ export default function Contact() {
     subscribe: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const inquiryTypes = [
     t("inquiry.general"),
@@ -34,9 +36,39 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [target.name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `New Inquiry: ${formData.inquiryType} — ${formData.name}`,
+          from_name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          company: formData.company || "Not provided",
+          inquiry_type: formData.inquiryType,
+          message: formData.message,
+          subscribe: formData.subscribe ? "Yes" : "No",
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(t("contact.error"));
+      }
+    } catch {
+      setError(t("contact.error"));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -138,8 +170,12 @@ export default function Contact() {
                   </span>
                 </label>
 
-                <button type="submit" className="btn-gold w-full sm:w-auto">
-                  {t("contact.send")}
+                {error && (
+                  <p className="text-red-500 text-sm font-body mb-4">{error}</p>
+                )}
+
+                <button type="submit" disabled={sending} className="btn-gold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
+                  {sending ? t("contact.sending") : t("contact.send")}
                 </button>
               </form>
             )}
