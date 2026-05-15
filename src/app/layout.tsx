@@ -22,13 +22,32 @@ export const metadata: Metadata = {
     "Umm Al Quwain",
     "GCC seafood supplier",
   ],
+  metadataBase: new URL("https://alnilefish.com"),
   openGraph: {
     title: "Al Nile Fish | Premium Fresh Seafood Import & Export",
     description:
-      "UAE's finest fresh seafood since 1981. Importing from Russia, Pakistan & Sri Lanka. Serving the Gulf region and beyond.",
+      "UAE's finest fresh seafood since 1981. Sourcing from Pakistan, India, Sri Lanka & Oman. Exporting to Russia, Europe & all GCC countries.",
     type: "website",
     locale: "en_US",
     siteName: "Al Nile Fish",
+    url: "https://alnilefish.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Al Nile Fish | Premium Fresh Seafood Import & Export",
+    description:
+      "UAE's finest fresh seafood since 1981. Sourcing from Pakistan, India, Sri Lanka & Oman. Exporting to Russia, Europe & all GCC countries.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
